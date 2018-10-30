@@ -213,3 +213,16 @@ ostream & operator<<(ostream & os, const Matrix & m)
 	}
 	return os;
 }
+
+istream & operator>>(istream & is, Matrix & m)
+{
+	cout << "Enter new matrix: ";
+	for (int i = 0; i < m.getI(); i++)
+	{
+		for (int j = 0; j <m.getJ(); j++)
+		{
+			is >> m[i][j] ;
+		}		
+	}
+	return is;
+}

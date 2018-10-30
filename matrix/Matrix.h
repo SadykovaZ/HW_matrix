@@ -28,3 +28,4 @@ public:
 
 bool operator==( const Matrix& m1, const Matrix& m2);
 ostream& operator<< (ostream& os, const Matrix& m);
+istream& operator>>(istream&is, Matrix& m);
