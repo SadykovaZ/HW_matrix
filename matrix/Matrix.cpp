@@ -40,13 +40,10 @@ void Matrix::transp()
 	int** t;
 	int a = this->i;
 	int b = this->j;
-	t = new int*[a];
+	t = new int*[b];
 	for (size_t j = 0; j < b; j++)
 	{
 		t[j] = new int[a];
-	}
-	for (size_t j = 0; j < b; j++)
-	{
 		for (size_t i = 0; i < a; i++)
 		{
 			t[j][i] = Matr[i][j];
@@ -55,8 +52,7 @@ void Matrix::transp()
 	this->~Matrix();
 	this->Matr = t;
 	this->i = b;
-	this->j = a;
-
+	this->j = a;	
 }
 void Matrix::operator*=(int num)
 {
@@ -175,23 +171,23 @@ Matrix & Matrix::operator=(Matrix && m)
 	return *this;
 }
 Matrix::~Matrix()
-{
-	for (int i = 0; i < this->i; i++)
+{	
+	for (int a = 0; a < this->i; a++)
 	{
-		delete[]Matr[i];
-	}
-	delete[]Matr;
+		delete[]Matr[a];		
+	}	
+	delete[]this->Matr;	
 	this->i = 0;
 	this->j = 0;
 	this->Matr = nullptr;
 }
-bool operator==( const Matrix & m1, const Matrix & m2)
+bool operator==(const Matrix & m1, const Matrix & m2)
 {
 	if (m1.getI() != m2.getI() || m1.getJ() != m2.getJ())
-		return false;	
+		return false;
 	int a = m1.getI();
 	int b = m1.getJ();
-	for (int i = 0; i <a; i++)
+	for (int i = 0; i < a; i++)
 	{
 		for (int j = 0; j < b; j++)
 		{
@@ -199,7 +195,7 @@ bool operator==( const Matrix & m1, const Matrix & m2)
 				return false;
 		}
 	}
-	return true;	
+	return true;
 }
 ostream & operator<<(ostream & os, const Matrix & m)
 {
@@ -219,10 +215,10 @@ istream & operator>>(istream & is, Matrix & m)
 	cout << "Enter new matrix: ";
 	for (int i = 0; i < m.getI(); i++)
 	{
-		for (int j = 0; j <m.getJ(); j++)
+		for (int j = 0; j < m.getJ(); j++)
 		{
-			is >> m[i][j] ;
-		}		
+			is >> m[i][j];
+		}
 	}
 	return is;
 }

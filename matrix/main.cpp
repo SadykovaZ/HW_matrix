@@ -2,11 +2,11 @@
 using namespace std;
 
 void main() {
-	/*Matrix m(2,3,1);
-	cin >> m;
-	cout << m;*/
+	Matrix m1(2,3,1);
+	cin >> m1;
+	cout << m1;
 	Matrix m(2, 3, 1);
-	/*m[1][1] = 4;
+	m[1][1] = 4;
 	cout << m;
 	Matrix n(2, 3, 1);
 	if (m == n)
@@ -18,9 +18,9 @@ void main() {
 	cout << endl;
 	m[1][1] = 7;
 	m.print();
-	cout << endl;*/
+	cout << endl;
 	m.transp();
-	m.print();
+	m.print();	
 	system("pause");
 
 }
